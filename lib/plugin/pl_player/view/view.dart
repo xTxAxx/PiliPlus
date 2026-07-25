@@ -409,46 +409,38 @@ class _PLVideoPlayerState extends State<PLVideoPlayer>
         plPlayerController: plPlayerController,
       ),
 
-      /// 上一集 / 上一帧
-      BottomControlType.pre => Obx(
-        () => ComBtn(
-          width: widgetWidth,
-          height: 30,
-          tooltip: plPlayerController.fineStepMode.value ? '上一帧' : '上一集',
-          icon: const Icon(
-            Icons.skip_previous,
-            size: 22,
-            color: Colors.white,
-          ),
-          onTap: () {
-            if (plPlayerController.fineStepMode.value) {
-              plPlayerController.frameStepBackward();
-            } else if (!introController.prevPlay()) {
-              SmartDialog.showToast('已经是第一集了');
-            }
-          },
+      /// 上一集
+      BottomControlType.pre => ComBtn(
+        width: widgetWidth,
+        height: 30,
+        tooltip: '上一集',
+        icon: const Icon(
+          Icons.skip_previous,
+          size: 22,
+          color: Colors.white,
         ),
+        onTap: () {
+          if (!introController.prevPlay()) {
+            SmartDialog.showToast('已经是第一集了');
+          }
+        },
       ),
 
-      /// 下一集 / 下一帧
-      BottomControlType.next => Obx(
-        () => ComBtn(
-          width: widgetWidth,
-          height: 30,
-          tooltip: plPlayerController.fineStepMode.value ? '下一帧' : '下一集',
-          icon: const Icon(
-            Icons.skip_next,
-            size: 22,
-            color: Colors.white,
-          ),
-          onTap: () {
-            if (plPlayerController.fineStepMode.value) {
-              plPlayerController.frameStepForward();
-            } else if (!introController.nextPlay()) {
-              SmartDialog.showToast('已经是最后一集了');
-            }
-          },
+      /// 下一集
+      BottomControlType.next => ComBtn(
+        width: widgetWidth,
+        height: 30,
+        tooltip: '下一集',
+        icon: const Icon(
+          Icons.skip_next,
+          size: 22,
+          color: Colors.white,
         ),
+        onTap: () {
+          if (!introController.nextPlay()) {
+            SmartDialog.showToast('已经是最后一集了');
+          }
+        },
       ),
 
       /// 时间进度

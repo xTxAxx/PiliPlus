@@ -348,7 +348,6 @@ class PlPlayerController with BlockConfigMixin {
   late final showFsScreenshotBtn = Pref.showFsScreenshotBtn;
   late final showFsLockBtn = Pref.showFsLockBtn;
   late final keyboardControl = Pref.keyboardControl;
-  late final RxBool fineStepMode = Pref.fineStepMode.obs;
   late final uiScale = Pref.uiScale;
 
   late final bool autoEnterFullScreen = Pref.autoEnterFullScreen;
@@ -1324,28 +1323,6 @@ class PlPlayerController with BlockConfigMixin {
       duration.clamp(Duration.zero, videoPlayerController!.state.duration),
       isSeek: false,
     ).whenComplete(play);
-  }
-
-  /// 帧步进 - 向后一帧
-  Future<void> frameStepBackward() async {
-    if (isLive) return;
-    try {
-      // 使用 mpv frame-back-step 命令：向后步进一帧
-      await _videoPlayerController?.command(['frame-back-step']);
-    } catch (e) {
-      if (kDebugMode) debugPrint('frameStepBackward failed: $e');
-    }
-  }
-
-  /// 帧步进 - 向前一帧
-  Future<void> frameStepForward() async {
-    if (isLive) return;
-    try {
-      // 使用 mpv frame-step 命令：向前步进一帧并暂停
-      await _videoPlayerController?.command(['frame-step']);
-    } catch (e) {
-      if (kDebugMode) debugPrint('frameStepForward failed: $e');
-    }
   }
 
   void doubleTapFuc(DoubleTapType type) {

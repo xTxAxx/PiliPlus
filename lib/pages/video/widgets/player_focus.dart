@@ -270,9 +270,7 @@ class PlayerFocus extends StatelessWidget {
             return true;
 
           case LogicalKeyboardKey.bracketLeft:
-            if (plPlayerController.fineStepMode.value) {
-              plPlayerController.frameStepBackward();
-            } else if (introController case final introController?) {
+            if (introController case final introController?) {
               if (!introController.prevPlay()) {
                 SmartDialog.showToast('已经是第一集了');
               }
@@ -280,9 +278,7 @@ class PlayerFocus extends StatelessWidget {
             return true;
 
           case LogicalKeyboardKey.bracketRight:
-            if (plPlayerController.fineStepMode.value) {
-              plPlayerController.frameStepForward();
-            } else if (introController case final introController?) {
+            if (introController case final introController?) {
               if (!introController.nextPlay()) {
                 SmartDialog.showToast('已经是最后一集了');
               }
