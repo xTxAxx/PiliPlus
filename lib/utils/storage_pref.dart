@@ -1025,6 +1025,9 @@ abstract final class Pref {
   static int get angleDegrees =>
       _setting.get(SettingBoxKey.angleDegrees, defaultValue: 30);
 
+  static bool get fineStepMode =>
+      _setting.get(SettingBoxKey.fineStepMode, defaultValue: false);
+
   static double get playerVolume => // mobile
       _setting.get(SettingBoxKey.playerVolume, defaultValue: 100.0);
 

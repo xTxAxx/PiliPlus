@@ -246,6 +246,13 @@ List<SettingsModel> get playSettings => [
     defaultVal: true,
   ),
   const SwitchModel(
+    title: '精细步进模式',
+    subtitle: "将'上一集/下一集'切换为'上一帧/下一帧'",
+    leading: Icon(Icons.zoom_in),
+    setKey: SettingBoxKey.fineStepMode,
+    defaultVal: false,
+  ),
+  const SwitchModel(
     title: '观看人数',
     subtitle: '展示同时在看人数',
     leading: Icon(Icons.people_outlined),
