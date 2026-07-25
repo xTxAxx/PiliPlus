@@ -102,6 +102,30 @@ class PostPanel extends CommonSlidePage {
             iconButton(
               context: context,
               size: 26,
+              tooltip: '上一帧',
+              icon: const Icon(Icons.navigate_before),
+              onPressed: () async {
+                final player = PlPlayerController.instance?.videoPlayerController;
+                if (player != null) {
+                  await player.command(['frame_back_step']);
+                }
+              },
+            ),
+            iconButton(
+              context: context,
+              size: 26,
+              tooltip: '下一帧',
+              icon: const Icon(Icons.navigate_next),
+              onPressed: () async {
+                final player = PlPlayerController.instance?.videoPlayerController;
+                if (player != null) {
+                  await player.command(['frame_step']);
+                }
+              },
+            ),
+            iconButton(
+              context: context,
+              size: 26,
               tooltip: '编辑',
               icon: const Icon(Icons.edit),
               onPressed: () async {
