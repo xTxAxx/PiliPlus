@@ -67,7 +67,13 @@ $ScrollPositionPatch = "lib/scripts/scroll_position.patch"
 # expose `_shouldIgnorePointer`
 $ScrollablePatch = "lib/scripts/scrollable.patch"
 
-$TabsPatch = "lib/scripts/tabs.patch"
+$ScaffoldPatch = "lib/scripts/scaffold.patch"
+
+$ScrollableGesturePatch = "lib/scripts/scrollable_gesture.patch"
+
+$DraggableScrollableSheetPatch = "lib/scripts/draggable_scrollable_sheet.patch"
+
+$TextPatch = "lib/scripts/text.patch"
 
 # TODO: remove
 # https://github.com/flutter/flutter/issues/124078
@@ -103,7 +109,8 @@ $patches = @($ModalBarrierPatch, $TextSelectionPatch, $MouseCursorPatch,
             $ImageAnimPatch, $LayoutBuilderPatch, $NavigationDrawerPatch,
             $PopupMenuPatch, $FABPatch, $NullSafetySelectableRegionPatch,
             $SelectableRegionPatch, $EditableTextPatch, $TextFieldPatch,
-            $ScrollPositionPatch, $ScrollablePatch, $TabsPatch)
+            $ScrollPositionPatch, $ScrollablePatch, $ScrollableGesturePatch,
+            $DraggableScrollableSheetPatch, $ScaffoldPatch, $TextPatch)
 
 switch ($platform.ToLower()) {
     "android" {
